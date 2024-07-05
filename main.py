@@ -38,8 +38,11 @@ async def return_stat(res):
         r_,w_ = i
         r += r_
         w += w_
-    return int((r/(r+w) * 100) // 1)
-
+    try:
+        return int((r/(r+w) * 100) // 1)
+    except:
+        return 0
+        
 def generate_options_keyboard(answer_options, right_answer):
     builder = InlineKeyboardBuilder()
     c=0
@@ -218,6 +221,8 @@ async def show_res(message):
      res_r = await get_res_r_index(user_id)
      res_w = await get_res_w_index(user_id)
      res_all = await get_res_all(user_id)
+     if res_all == 0:
+         res_all = 'Нет статистики других игроков'
      await message.answer(f"Ваши ответы: Верно: {res_r}, Ошибочно: {res_w} \nОбщий процент побед в викторине не вкулючая Вас: {res_all}")
 
 

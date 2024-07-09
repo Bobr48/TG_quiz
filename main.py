@@ -20,8 +20,7 @@ logging.basicConfig(level=logging.INFO)
 # Замените "YOUR_BOT_TOKEN" на токен, который вы получили от BotFather
 dotenv.load_dotenv()
 
-#API_TOKEN =os.getenv('API_TOKEN')
-API_TOKEN ='6446852543:AAHeWMsSCKIZqBLB2oQ5dQbHjnN5sYayIDk'
+API_TOKEN =os.getenv('API_TOKEN')
 # Объект бота
 bot = Bot(token=API_TOKEN)
 # Диспетчер
